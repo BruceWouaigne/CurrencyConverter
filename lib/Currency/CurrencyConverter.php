@@ -25,7 +25,7 @@ class CurrencyConverter
      */
     public function __construct($amount = 1, $fromCurrency = 'EUR', $toCurrency = 'USD', $userLang = 'en')
     {
-        $this->amount = $amount;
+        $this->amount = (float) $amount;
         $this->fromCurrency = $fromCurrency;
         $this->toCurrency = $toCurrency;
         $this->userLang = $userLang;
@@ -71,6 +71,10 @@ class CurrencyConverter
         $this->haveToReload = false;
     }
 
+    /**
+     * Get the initial amount
+     * @return float
+     */
     public function getAmount()
     {
         if ($this->haveToReload)
